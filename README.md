@@ -1,2 +1,2 @@
-# website
+# Website
 Open DIY Foundation Website
