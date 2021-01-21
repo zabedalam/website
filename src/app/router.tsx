@@ -1,22 +1,22 @@
-import { Router, RouteComponentProps } from "@reach/router";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 // Custom Components
-import Home from "../pages/home";
-import Signup from "../pages/signup";
-import Login from "../pages/login";
+import Home from "../pages/home/Home";
+import Signup from "../pages/signup/Signup";
+import Login from "../pages/login/Login";
+import Nav from "../components/nav";
 
 function AppRouter() {
   return (
-    <Router>
-      <RouterPage path="/" pageComponent={<Home />} />
-      <RouterPage path="/signup" pageComponent={<Signup />} />
-      <RouterPage path="/login" pageComponent={<Login />} />
-    </Router>
+    <BrowserRouter>
+      <Nav />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/signup" component={Signup} />
+        <Route exact path="/login" component={Login} />
+      </Switch>
+    </BrowserRouter>
   );
 }
 
 export default AppRouter;
-
-const RouterPage = (
-  props: { pageComponent: JSX.Element } & RouteComponentProps
-) => props.pageComponent;

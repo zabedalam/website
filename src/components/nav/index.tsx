@@ -26,13 +26,11 @@ const useStyles = makeStyles((theme) => ({
   headerOptions: {
     display: "flex",
     flex: 1,
-    // justifyContent: "space-evenly",
-    justifyContent:"flex-end",
+    justifyContent: "flex-end",
   },
 }));
 
 const Nav = (props: any) => {
-    // console.log("Hello",props)
   const { history } = props;
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -41,7 +39,6 @@ const Nav = (props: any) => {
   const isMobile = useMediaQuery(theme.breakpoints.down("xs"));
 
   const handleMenu = (event: any) => {
-    //   console.log(event)
     setAnchorEl(event.currentTarget);
   };
 
@@ -60,7 +57,7 @@ const Nav = (props: any) => {
       pageURL: "/",
     },
     {
-      menuTitle: "SignUp",
+      menuTitle: "Signup",
       pageURL: "/signup",
     },
     {
@@ -87,7 +84,7 @@ const Nav = (props: any) => {
               >
                 <MenuIcon />
               </IconButton>
-              
+
               <Menu
                 id="menu-appbar"
                 anchorEl={anchorEl}
@@ -115,20 +112,17 @@ const Nav = (props: any) => {
             </>
           ) : (
             <div className={classes.headerOptions}>
-              <Button
-                variant="contained"
-                onClick={() => handleButtonClick("/")}
-              >
+              <Button color="inherit" onClick={() => handleButtonClick("/")}>
                 HOME
               </Button>
               <Button
-                variant="contained"
+                color="inherit"
                 onClick={() => handleButtonClick("/signup")}
               >
                 SIGNUP
               </Button>
               <Button
-                variant="contained"
+                color="inherit"
                 onClick={() => handleButtonClick("/login")}
               >
                 LOGIN
