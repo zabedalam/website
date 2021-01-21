@@ -84,7 +84,6 @@ const Nav = (props: any) => {
               >
                 <MenuIcon />
               </IconButton>
-
               <Menu
                 id="menu-appbar"
                 anchorEl={anchorEl}

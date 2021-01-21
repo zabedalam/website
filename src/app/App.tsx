@@ -1,6 +1,4 @@
 import React from "react";
-
-// Router
 import AppRouter from "./router";
 
 function App() {

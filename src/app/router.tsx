@@ -1,6 +1,4 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-
-// Custom Components
 import Home from "../pages/home/Home";
 import Signup from "../pages/signup/Signup";
 import Login from "../pages/login/Login";
