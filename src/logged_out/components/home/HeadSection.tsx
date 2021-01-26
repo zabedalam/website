@@ -1,4 +1,3 @@
-import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import {
@@ -101,7 +100,7 @@ const styles = (theme:any) => ({
 function HeadSection(props:any) {
   const { classes, theme, width } = props;
   return (
-    <Fragment>
+    <div>
       <div className={classNames("lg-p-top", classes.wrapper)}>
         <div className={classNames("container-fluid", classes.container)}>
           <Box display="flex" justifyContent="center" className="row">
@@ -171,7 +170,7 @@ function HeadSection(props:any) {
         className={classes.waveBorder}
         animationNegativeDelay={2}
       />
-    </Fragment>
+    </div>
   );
 }
 

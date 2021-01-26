@@ -1,14 +1,9 @@
 import React, { Fragment, useEffect } from "react";
-import PropTypes from "prop-types";
 import HeadSection from "./HeadSection";
 import FeatureSection from "./FeatureSection";
 import PricingSection from "./PricingSection";
 
-function HomeComponent(props:any) {
-  // const { selectHome } = props;
-  // useEffect(() => {
-  //   selectHome();
-  // }, [selectHome]);
+function HomeComponent(props: any) {
   return (
     <Fragment>
       <HeadSection />
@@ -17,9 +12,5 @@ function HomeComponent(props:any) {
     </Fragment>
   );
 }
-
-// HomeComponent.propTypes = {
-//   selectHome: PropTypes.func.isRequired
-// };
 
 export default HomeComponent;

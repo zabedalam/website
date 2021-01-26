@@ -1,7 +1,4 @@
-import React from "react";
 import PropTypes from "prop-types";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
-
 import classNames from "classnames";
 import {
   Grid,
@@ -47,7 +44,7 @@ const styles = (theme: any) => ({
   },
 });
 
-function PricingSection(props:any) {
+function PricingSection(props: any) {
   const { width, classes } = props;
   return (
     <div className="lg-p-top" style={{ backgroundColor: "#FFFFFF" }}>

@@ -1,4 +1,3 @@
-import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import { Typography, withStyles  } from "@material-ui/core";
 
@@ -39,7 +38,7 @@ function shadeColor(hex: any, percent: any) {
 function FeatureCard(props: any) {
   const { classes, Icon, color, headline, text } = props;
   return (
-    <Fragment>
+    <div>
       <div
         // We will set color and fill here, due to some prios complications
         className={classes.iconWrapper}
@@ -57,7 +56,7 @@ function FeatureCard(props: any) {
       <Typography variant="body1" color="textSecondary">
         {text}
       </Typography>
-    </Fragment>
+    </div>
   );
 }
 
