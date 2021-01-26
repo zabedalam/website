@@ -1,7 +1,10 @@
+import { AnyMxRecord } from "dns";
+import HomePage from "../../logged_out/components/home/Home"
 function Home() {
+  
   return (
     <div>
-      <h1>This Home page</h1>
+      <HomePage/>
     </div>
   );
 }
