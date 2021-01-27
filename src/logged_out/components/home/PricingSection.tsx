@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import classNames from "classnames";
 import {
   Grid,
@@ -142,10 +141,6 @@ function PricingSection(props: any) {
     </div>
   );
 }
-
-PricingSection.propTypes = {
-  width: PropTypes.string.isRequired,
-};
 
 export default withStyles(styles, { withTheme: true })(
   withWidth()(PricingSection)

@@ -1,5 +1,4 @@
-import PropTypes from "prop-types";
-import { Typography, withStyles  } from "@material-ui/core";
+import { Typography, withStyles } from "@material-ui/core";
 
 const styles = (theme: any) => ({
   iconWrapper: {
@@ -59,13 +58,5 @@ function FeatureCard(props: any) {
     </div>
   );
 }
-
-FeatureCard.propTypes = {
-  classes: PropTypes.object.isRequired,
-  Icon: PropTypes.element.isRequired,
-  color: PropTypes.string.isRequired,
-  headline: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
-};
 
 export default withStyles(styles, { withTheme: true })(FeatureCard);

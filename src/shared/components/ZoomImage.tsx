@@ -1,7 +1,6 @@
-import React, { Fragment, useState, useCallback, useEffect } from "react";
-import PropTypes from "prop-types";
+import React, { useState, useCallback, useEffect } from "react";
 import { Portal, Backdrop, withStyles } from "@material-ui/core";
-import ScrollbarSize  from "@material-ui/core/Tabs/";
+import ScrollbarSize from "@material-ui/core/Tabs/";
 import classNames from "classnames";
 
 const styles = (theme: any) => ({
@@ -56,18 +55,21 @@ function ZoomImage(props: any) {
     if (zoomedIn) {
       document.body.style.overflow = "hidden";
       document.body.style.paddingRight = `${scrollbarSize}px`;
+      // important figure out later on
       // document.querySelector(
       //   "header"
       // ).style.paddingRight = `${scrollbarSize}px`;
     } else {
       document.body.style.overflow = "auto";
       document.body.style.paddingRight = "0px";
+      // important figure out later on
       // document.querySelector("header").style.paddingRight = "0px";
     }
   }, [zoomedIn, scrollbarSize]);
 
   return (
-    <Fragment>
+    <div>
+      {/* important figure out later on */}
       {/* <ScrollbarSize onChange={setScrollbarSize}></ScrollbarSize> */}
       {zoomedIn && (
         <Portal>
@@ -95,17 +97,8 @@ function ZoomImage(props: any) {
         className={classNames(className, classes.zoomedOutImage)}
         {...rest}
       ></img>
-    </Fragment>
+    </div>
   );
 }
-
-ZoomImage.propTypes = {
-  classes: PropTypes.object.isRequired,
-  alt: PropTypes.string.isRequired,
-  src: PropTypes.string.isRequired,
-  theme: PropTypes.object.isRequired,
-  zoomedImgProps: PropTypes.object,
-  className: PropTypes.string,
-};
 
 export default withStyles(styles, { withTheme: true })(ZoomImage);

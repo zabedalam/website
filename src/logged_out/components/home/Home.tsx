@@ -1,15 +1,14 @@
-import React, { Fragment, useEffect } from "react";
 import HeadSection from "./HeadSection";
 import FeatureSection from "./FeatureSection";
 import PricingSection from "./PricingSection";
 
 function HomeComponent(props: any) {
   return (
-    <Fragment>
+    <div>
       <HeadSection />
       <FeatureSection />
       <PricingSection />
-    </Fragment>
+    </div>
   );
 }
 

@@ -1,8 +1,7 @@
-import PropTypes from "prop-types";
 import { Typography, Box, withStyles } from "@material-ui/core";
 import CheckIcon from "@material-ui/icons/Check";
 
-const styles = (theme:any) => ({
+const styles = (theme: any) => ({
   card: {
     paddingTop: theme.spacing(6),
     paddingBottom: theme.spacing(6),
@@ -10,7 +9,7 @@ const styles = (theme:any) => ({
     paddingRight: theme.spacing(4),
     marginTop: theme.spacing(2),
     border: `3px solid ${theme.palette.primary.dark}`,
-    borderRadius: theme.shape.borderRadius * 2
+    borderRadius: theme.shape.borderRadius * 2,
   },
   cardHightlighted: {
     paddingTop: theme.spacing(8),
@@ -21,15 +20,15 @@ const styles = (theme:any) => ({
     borderRadius: theme.shape.borderRadius * 2,
     backgroundColor: theme.palette.primary.main,
     [theme.breakpoints.down("xs")]: {
-      marginTop: theme.spacing(2)
-    }
+      marginTop: theme.spacing(2),
+    },
   },
   title: {
-    color: theme.palette.primary.main
-  }
+    color: theme.palette.primary.main,
+  },
 });
 
-function PriceCard(props:any) {
+function PriceCard(props: any) {
   const { classes, theme, title, pricing, features, highlighted } = props;
   return (
     <div className={highlighted ? classes.cardHightlighted : classes.card}>
@@ -44,18 +43,18 @@ function PriceCard(props:any) {
       <Box mb={2}>
         <Typography
           variant={highlighted ? "h3" : "h4"}
-          className={highlighted ? "text-white":undefined }
+          className={highlighted ? "text-white" : undefined}
         >
           {pricing}
         </Typography>
       </Box>
-      {features.map((feature:string, index:number) => (
+      {features.map((feature: string, index: number) => (
         <Box display="flex" alignItems="center" mb={1} key={index}>
           <CheckIcon
             style={{
               color: highlighted
                 ? theme.palette.common.white
-                : theme.palette.primary.dark
+                : theme.palette.primary.dark,
             }}
           />
           <Box ml={1}>
@@ -71,14 +70,5 @@ function PriceCard(props:any) {
     </div>
   );
 }
-
-PriceCard.propTypes = {
-  classes: PropTypes.object.isRequired,
-  theme: PropTypes.object.isRequired,
-  title: PropTypes.string.isRequired,
-  pricing: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
-  highlighted: PropTypes.bool,
-  features: PropTypes.object.isRequired
-};
 
 export default withStyles(styles, { withTheme: true })(PriceCard);

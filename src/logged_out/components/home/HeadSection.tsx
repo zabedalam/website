@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import classNames from "classnames";
 import {
   Grid,
@@ -14,7 +13,7 @@ import {
 import WaveBorder from "../../../shared/components/WaveBorder";
 import ZoomImage from "../../../shared/components/ZoomImage";
 
-const styles = (theme:any) => ({
+const styles = (theme: any) => ({
   extraLargeButtonLabel: {
     fontSize: theme.typography.body1.fontSize,
     [theme.breakpoints.up("sm")]: {
@@ -97,7 +96,7 @@ const styles = (theme:any) => ({
   },
 });
 
-function HeadSection(props:any) {
+function HeadSection(props: any) {
   const { classes, theme, width } = props;
   return (
     <div>
@@ -174,13 +173,6 @@ function HeadSection(props:any) {
   );
 }
 
-HeadSection.propTypes = {
-  classes: PropTypes.object,
-  width: PropTypes.string,
-  theme: PropTypes.object,
-};
-
 export default withWidth()(
-  withStyles(styles,{ withTheme: true })(HeadSection)
+  withStyles(styles, { withTheme: true })(HeadSection)
 );
-

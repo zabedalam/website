@@ -1,5 +1,3 @@
-import React from "react";
-import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core";
 
 const styles = {
@@ -8,24 +6,24 @@ const styles = {
     width: "100%" as const,
     marginBottom: -7 as const,
     height: "7vw" as const,
-    minHeight: "7vw" as const
+    minHeight: "7vw" as const,
   },
   "@keyframes moveForever": {
     from: { transform: "translate3d(-90px, 0, 0)" },
-    to: { transform: "translate3d(85px, 0, 0)" }
+    to: { transform: "translate3d(85px, 0, 0)" },
   },
   parallax: {
     "& > use": {
       animation: "$moveForever 4s cubic-bezier(0.62, 0.5, 0.38, 0.5) infinite",
-      animationDelay: (props:any) => `-${props.animationNegativeDelay}s`
-    }
-  }
+      animationDelay: (props: any) => `-${props.animationNegativeDelay}s`,
+    },
+  },
 };
 
 /**
  *  https://codepen.io/csspoints/pen/WNeOEqd
  */
-function WaveBorder(props:any) {
+function WaveBorder(props: any) {
   const id = String(Math.random());
   const {
     className,
@@ -58,12 +56,5 @@ function WaveBorder(props:any) {
     </div>
   );
 }
-
-WaveBorder.propTypes = {
-  lowerColor: PropTypes.string.isRequired,
-  upperColor: PropTypes.string.isRequired,
-  classes: PropTypes.object.isRequired,
-  animationNegativeDelay: PropTypes.number.isRequired
-};
 
 export default withStyles(styles)(WaveBorder);
