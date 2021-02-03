@@ -24,8 +24,8 @@ function DialogTitleWithCloseIcon(props: any) {
             ? 0
             : paddingBottom
           : theme.spacing(3),
-        paddingLeft: disablePadding ? 0 : undefined,
-        paddingRight: disablePadding ? 0 : undefined,
+        paddingLeft: disablePadding ? 0 : theme.spacing(2),
+        paddingRight: disablePadding ? 0 : theme.spacing(2),
         paddingTop: disablePadding ? 0 : theme.spacing(2),
         width: "100%",
       }}

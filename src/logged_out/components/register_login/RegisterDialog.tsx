@@ -35,9 +35,9 @@ function RegisterDialog(props:any) {
   const [isLoading, setIsLoading] = useState(false);
   const [hasTermsOfServiceError, setHasTermsOfServiceError] = useState(false);
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
-  const registerTermsCheckbox = useRef();
-  const registerPassword = useRef();
-  const registerPasswordRepeat = useRef();
+  const registerTermsCheckbox:any = useRef();
+  const registerPassword:any = useRef();
+  const registerPasswordRepeat:any = useRef();
 
   const register = useCallback(() => {
     if (!registerTermsCheckbox.current.checked) {
@@ -70,7 +70,7 @@ function RegisterDialog(props:any) {
       onClose={onClose}
       open
       headline="Register"
-      onFormSubmit={(e) => {
+      onFormSubmit={(e: any) => {
         e.preventDefault();
         register();
       }}

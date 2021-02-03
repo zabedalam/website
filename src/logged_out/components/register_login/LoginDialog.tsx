@@ -46,8 +46,8 @@ function LoginDialog(props: any) {
   } = props;
   const [isLoading, setIsLoading] = useState(false);
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
-  const loginEmail = useRef();
-  const loginPassword = useRef();
+  const loginEmail: any = useRef();
+  const loginPassword: any = useRef();
 
   const login = useCallback(() => {
     setIsLoading(true);
