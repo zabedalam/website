@@ -9,11 +9,16 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import Button from "@material-ui/core/Button";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+import logo from "../../assets/images/logo.png";
 import { withRouter } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+  },
+  appBar: {
+    boxShadow: theme.shadows[6],
+    backgroundColor: theme.palette.common.white,
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -27,6 +32,18 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flex: 1,
     justifyContent: "flex-end",
+  },
+  menuButtonText: {
+    fontSize: theme.typography.body1.fontSize,
+    fontWeight: "bold",
+  },
+  logo: {
+    margin: "auto",
+    maxWidth: "20%",
+    maxHeight: "20%",
+  },
+  burgerMenu: {
+    fontSize: "50px",
   },
 }));
 
@@ -68,21 +85,21 @@ const Nav = (props: any) => {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="static" className={classes.appBar}>
         <Toolbar>
-          <Typography variant="h6" className={classes.title}>
-            LOGO
-          </Typography>
+          <div>
+            <img src={logo} className={classes.logo} alt="logo" />
+          </div>
           {isMobile ? (
             <>
               <IconButton
                 edge="start"
                 className={classes.menuButton}
-                color="inherit"
+                color="primary"
                 aria-label="menu"
                 onClick={handleMenu}
               >
-                <MenuIcon />
+                <MenuIcon className={classes.burgerMenu} />
               </IconButton>
               <Menu
                 id="menu-appbar"
@@ -111,17 +128,23 @@ const Nav = (props: any) => {
             </>
           ) : (
             <div className={classes.headerOptions}>
-              <Button color="inherit" onClick={() => handleButtonClick("/")}>
+              <Button
+                color="primary"
+                className={classes.menuButtonText}
+                onClick={() => handleButtonClick("/")}
+              >
                 HOME
               </Button>
               <Button
-                color="inherit"
+                className={classes.menuButtonText}
+                color="primary"
                 onClick={() => handleButtonClick("/signup")}
               >
                 SIGNUP
               </Button>
               <Button
-                color="inherit"
+                color="primary"
+                className={classes.menuButtonText}
                 onClick={() => handleButtonClick("/login")}
               >
                 LOGIN
