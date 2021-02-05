@@ -9,6 +9,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import Button from "@material-ui/core/Button";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+import logo from "../../assets/images/logo.png";
 import { withRouter } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
@@ -35,6 +36,14 @@ const useStyles = makeStyles((theme) => ({
   menuButtonText: {
     fontSize: theme.typography.body1.fontSize,
     fontWeight: "bold",
+  },
+  logo: {
+    margin: "auto",
+    maxWidth: "20%",
+    maxHeight: "20%",
+  },
+  burgerMenu: {
+    fontSize: "50px",
   },
 }));
 
@@ -78,9 +87,9 @@ const Nav = (props: any) => {
     <div className={classes.root}>
       <AppBar position="static" className={classes.appBar}>
         <Toolbar>
-          <Typography variant="h6" color="primary" className={classes.title}>
-            LOGO
-          </Typography>
+          <div>
+            <img src={logo} className={classes.logo} alt="logo" />
+          </div>
           {isMobile ? (
             <>
               <IconButton
@@ -90,7 +99,7 @@ const Nav = (props: any) => {
                 aria-label="menu"
                 onClick={handleMenu}
               >
-                <MenuIcon />
+                <MenuIcon className={classes.burgerMenu} />
               </IconButton>
               <Menu
                 id="menu-appbar"
