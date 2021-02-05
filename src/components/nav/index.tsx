@@ -15,6 +15,10 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
+  appBar: {
+    boxShadow: theme.shadows[6],
+    backgroundColor: theme.palette.common.white,
+  },
   menuButton: {
     marginRight: theme.spacing(2),
   },
@@ -27,6 +31,10 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flex: 1,
     justifyContent: "flex-end",
+  },
+  menuButtonText: {
+    fontSize: theme.typography.body1.fontSize,
+    fontWeight: "bold",
   },
 }));
 
@@ -68,9 +76,9 @@ const Nav = (props: any) => {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="static" className={classes.appBar}>
         <Toolbar>
-          <Typography variant="h6" className={classes.title}>
+          <Typography variant="h6" color="primary" className={classes.title}>
             LOGO
           </Typography>
           {isMobile ? (
@@ -78,7 +86,7 @@ const Nav = (props: any) => {
               <IconButton
                 edge="start"
                 className={classes.menuButton}
-                color="inherit"
+                color="primary"
                 aria-label="menu"
                 onClick={handleMenu}
               >
@@ -111,17 +119,23 @@ const Nav = (props: any) => {
             </>
           ) : (
             <div className={classes.headerOptions}>
-              <Button color="inherit" onClick={() => handleButtonClick("/")}>
+              <Button
+                color="primary"
+                className={classes.menuButtonText}
+                onClick={() => handleButtonClick("/")}
+              >
                 HOME
               </Button>
               <Button
-                color="inherit"
+                className={classes.menuButtonText}
+                color="primary"
                 onClick={() => handleButtonClick("/signup")}
               >
                 SIGNUP
               </Button>
               <Button
-                color="inherit"
+                color="primary"
+                className={classes.menuButtonText}
                 onClick={() => handleButtonClick("/login")}
               >
                 LOGIN
