@@ -1,7 +1,8 @@
+import HeadSection from "../../components/header"
 function Home() {
   return (
     <div>
-      <h1>This Home page</h1>
+      <HeadSection/>
     </div>
   );
 }
