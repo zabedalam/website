@@ -81,7 +81,7 @@ const styles = (theme: any) => ({
     boxShadow: theme.shadows[4],
   },
   container: {
-    paddingTop: theme.spacing(10),
+    paddingTop: theme.spacing(15),
     marginBottom: theme.spacing(12),
     [theme.breakpoints.down("md")]: {
       marginBottom: theme.spacing(9),
