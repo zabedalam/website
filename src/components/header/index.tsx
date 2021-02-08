@@ -116,7 +116,11 @@ function HeadSection(props: any) {
               data-aos="zoom-in"
             >
               <div className={classNames(classes.containerFix, "container")}>
-                <Box  display="flex" justifyContent="space-between" className="row">
+                <Box
+                  display="flex"
+                  justifyContent="space-between"
+                  className="row"
+                >
                   <Grid item xs={12} md={5}>
                     <Box
                       display="flex"
