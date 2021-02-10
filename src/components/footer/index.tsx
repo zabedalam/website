@@ -112,7 +112,7 @@ const socialIcons = [
       </svg>
     ),
     label: "Github",
-    href: "https://github.com/dunky11/react-saas-template",
+    href: "https://github.com/opendiy/website",
   },
   {
     icon: (
