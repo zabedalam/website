@@ -1,5 +1,5 @@
 import { makeStyles } from '@material-ui/core';
-import {Grid, Box,IconButton,Paper}from '@material-ui/core';
+import {Grid,Paper}from '@material-ui/core';
 import SocialIcons from '../../components/common/SocialIcons';
 import Bubble from '../../components/common/Bubble';
 const styles = makeStyles((theme) => ({
