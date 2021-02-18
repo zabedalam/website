@@ -3,19 +3,19 @@
  * grid container component based on the viewsize
  */
 
-import { isWidthUp } from "@material-ui/core/withWidth";
+import { isWidthUp } from '@material-ui/core/withWidth';
 
-function calculateSpacing(width:any) {
-  if (isWidthUp("lg", width)) {
-    return 5;
-  }
-  if (isWidthUp("md", width)) {
-    return 4;
-  }
-  if (isWidthUp("sm", width)) {
-    return 3;
-  }
-  return 2;
+function calculateSpacing(width: any) {
+    if (isWidthUp('lg', width)) {
+        return 5;
+    }
+    if (isWidthUp('md', width)) {
+        return 4;
+    }
+    if (isWidthUp('sm', width)) {
+        return 3;
+    }
+    return 2;
 }
 
 export default calculateSpacing;

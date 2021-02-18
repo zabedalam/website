@@ -1,8 +1,6 @@
-import { makeStyles } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core';
 
-
-
-const styles=makeStyles((theme)=>({
+const styles = makeStyles((theme) => ({
     container: {
         color: '#fff',
         fontSize: 14,
@@ -14,7 +12,7 @@ const styles=makeStyles((theme)=>({
         position: 'relative',
         backgroundColor: theme.palette.secondary.main,
         borderLeftColor: theme.palette.secondary.main,
-        
+
         '&:before': {
             content: '""',
             width: 0,
@@ -27,17 +25,14 @@ const styles=makeStyles((theme)=>({
             borderWidth: '0 0 8px 8px',
             borderColor: 'transparent',
             borderLeftColor: theme.palette.secondary.main,
-        }
-        
+        },
     },
-}))
+}));
 
 type bubbleProps = {
-    content: string,
-  }
-export default function Bubble({content}:bubbleProps) {
-    const classes=styles();
-    return (
-        <span className={classes.container}>{content}</span>
-    )
+    content: string;
+};
+export default function Bubble({ content }: bubbleProps) {
+    const classes = styles();
+    return <span className={classes.container}>{content}</span>;
 }
