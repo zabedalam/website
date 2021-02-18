@@ -1,6 +1,5 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "../pages/home/Home";
-// import Resume from "../pages/resume/Resume";
 import Contributor from "../pages/contributor/Contributors";
 import Signup from "../pages/signup/Signup";
 import Login from "../pages/login/Login";
@@ -12,7 +11,6 @@ function AppRouter() {
       <Nav />
       <Switch>
         <Route exact path="/" component={Home} />
-        {/* <Route exact path="/resume" component={Resume} /> */}
         <Route exact path="/contributor" component={Contributor} />
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/login" component={Login} />
