@@ -82,8 +82,8 @@ const Nav = (props: any) => {
       pageURL: "/login",
     },
     {
-      menuTitle: "Resume",
-      pageURL: "/resume",
+      menuTitle: "Contributor",
+      pageURL: "/contributor",
     },
   ];
 
@@ -142,9 +142,9 @@ const Nav = (props: any) => {
               <Button
                 color="primary"
                 className={classes.menuButtonText}
-                onClick={() => handleButtonClick("/resume")}
+                onClick={() => handleButtonClick("/contributor")}
               >
-                RESUME
+                Contributor
               </Button>
               <Button
                 className={classes.menuButtonText}
