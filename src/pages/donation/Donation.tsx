@@ -1,4 +1,4 @@
-import DonationPage from '../../components/donation';
+import DonationPage from '../../components/donate';
 
 function Donation() {
     return (
