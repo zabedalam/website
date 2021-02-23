@@ -73,6 +73,10 @@ const Nav = (props: any) => {
             pageURL: '/',
         },
         {
+            menuTitle: 'Donate',
+            pageURL: '/donate',
+        },
+        {
             menuTitle: 'Signup',
             pageURL: '/signup',
         },
@@ -137,6 +141,13 @@ const Nav = (props: any) => {
                                 onClick={() => handleButtonClick('/')}
                             >
                                 HOME
+                            </Button>
+                            <Button
+                                className={classes.menuButtonText}
+                                color="primary"
+                                onClick={() => handleButtonClick('/donate')}
+                            >
+                                DONATE
                             </Button>
                             <Button
                                 color="primary"
