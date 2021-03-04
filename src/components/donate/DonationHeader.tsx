@@ -69,7 +69,7 @@ function DonationHeader(props: any) {
     const [radio, setRadio] = useState('');
     const [product] = useState({
         name: 'Monthly',
-        pay: 10,
+        price: 10,
         productBy: 'DIY',
     });
 
@@ -181,10 +181,10 @@ function DonationHeader(props: any) {
                                 stripeKey="pk_test_51FwspPG6np2P9MdlkRpx67fsoPwmTvpDrMOldn8PwnvfqW65hoesQV4FyWcJl5psyFLM8EBe4qZVK0fFArRNau5N001XmfvQ3p"
                                 token={makePayment}
                                 name="DIY"
-                                amount={product.pay * 100}
+                                amount={product.price * 100}
                             >
                                 <Button className={classes.button} disableElevation>
-                                    Give by credit card is just {product.pay}
+                                    Give by credit card is just {product.price}
                                 </Button>
                             </StripeCheckout>
                         </div>
