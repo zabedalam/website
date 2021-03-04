@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import StripeCheckout from 'react-stripe-checkout';
 import {
     Grid,
     Typography,
@@ -66,6 +67,33 @@ const itemsOnetime: any = [
 
 function DonationHeader(props: any) {
     const [radio, setRadio] = useState('');
+    const [product] = useState({
+        name: 'Monthly',
+        pay: 10,
+        productBy: 'DIY',
+    });
+
+    const makePayment = (token: any) => {
+        const body = {
+            token,
+            product,
+        };
+        const headers = {
+            'Content-Type': 'application/json',
+        };
+
+        return fetch(`http://localhost:8181/payment`, {
+            method: 'POST',
+            headers,
+            body: JSON.stringify(body),
+        })
+            .then((response) => {
+                console.log('RESPONSE', response);
+                const { status } = response;
+                console.log('STATUS', status);
+            })
+            .catch((error) => console.log(error));
+    };
 
     const { classes } = props;
 
@@ -149,13 +177,16 @@ function DonationHeader(props: any) {
                             />
                         </div>
                         <div className={classes.buttonStyle}>
-                            <Button className={classes.button} disableElevation>
-                                Give by credit card
-                            </Button>
-
-                            <Button className={classes.button} disableElevation>
-                                Give with PayPal
-                            </Button>
+                            <StripeCheckout
+                                stripeKey="pk_test_51FwspPG6np2P9MdlkRpx67fsoPwmTvpDrMOldn8PwnvfqW65hoesQV4FyWcJl5psyFLM8EBe4qZVK0fFArRNau5N001XmfvQ3p"
+                                token={makePayment}
+                                name="DIY"
+                                amount={product.pay * 100}
+                            >
+                                <Button className={classes.button} disableElevation>
+                                    Give by credit card is just {product.pay}
+                                </Button>
+                            </StripeCheckout>
                         </div>
                     </FormControl>
                 </div>
