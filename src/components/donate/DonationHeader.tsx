@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import StripeCheckout from 'react-stripe-checkout';
+import logo from '../../assets/images/logo.png';
+
 import {
     Grid,
     Typography,
@@ -180,7 +182,7 @@ function DonationHeader(props: any) {
                             <StripeCheckout
                                 stripeKey="pk_test_51FwspPG6np2P9MdlkRpx67fsoPwmTvpDrMOldn8PwnvfqW65hoesQV4FyWcJl5psyFLM8EBe4qZVK0fFArRNau5N001XmfvQ3p"
                                 token={makePayment}
-                                name="DIY"
+                                image={logo}
                                 amount={product.price * 100}
                             >
                                 <Button className={classes.button} disableElevation>
