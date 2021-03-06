@@ -1,14 +1,6 @@
 import React from 'react';
-import {
-    Button,
-    Card,
-    CardActionArea,
-    CardActions,
-    CardContent,
-    CardMedia,
-    Typography,
-    makeStyles,
-} from '@material-ui/core';
+import { Link } from 'react-router-dom';
+import { Card, CardActionArea, CardActions, CardContent, CardMedia, Typography, makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -24,13 +16,14 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Contributor(props: any) {
-    const { name, image, desc } = props;
+    const { id, name, img, desc } = props.contributor;
+    console.log(props.contributor);
     const classes = useStyles();
     return (
         <div>
             <Card className={classes.root}>
                 <CardActionArea>
-                    <CardMedia className={classes.media} image={image} title={name} />
+                    <CardMedia className={classes.media} image={img} title={name} />
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="h2">
                             {name}
@@ -41,9 +34,7 @@ export default function Contributor(props: any) {
                     </CardContent>
                 </CardActionArea>
                 <CardActions>
-                    <Button variant="outlined" size="small" color="secondary">
-                        Resume
-                    </Button>
+                    <Link to={`/profile/${id}`}>Profile</Link>
                 </CardActions>
             </Card>
         </div>

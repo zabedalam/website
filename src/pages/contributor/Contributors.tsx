@@ -41,8 +41,8 @@ export default function Contributors() {
             <SectionTitle title="Contributors" />
             <Grid container className={classes.containerGrid}>
                 {contributors.map((contributor) => (
-                    <Grid item xs={6} md={4} key={contributor.name}>
-                        <Contributor name={contributor.name} image={contributor.img} desc={contributor.desc} />
+                    <Grid item xs={6} md={4} key={contributor.id}>
+                        <Contributor contributor={contributor} />
                     </Grid>
                 ))}
             </Grid>
