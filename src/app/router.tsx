@@ -5,6 +5,7 @@ import Contributor from '../pages/contributor/Contributors';
 import Signup from '../pages/signup/Signup';
 import Login from '../pages/login/Login';
 import Nav from '../components/nav';
+import Profile from '../pages/contributor/Profile';
 
 function AppRouter() {
     return (
@@ -14,6 +15,7 @@ function AppRouter() {
                 <Route exact path="/" component={Home} />
                 <Route exact path="/donate" component={Donation} />
                 <Route exact path="/contributor" component={Contributor} />
+                <Route exact path="/profile/:id" component={Profile} />
                 <Route exact path="/signup" component={Signup} />
                 <Route exact path="/login" component={Login} />
             </Switch>
