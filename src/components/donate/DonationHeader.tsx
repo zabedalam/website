@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import StripeCheckout from 'react-stripe-checkout';
-import logo from '../../assets/images/logo.png';
+import HomePage from './StripeMain';
+import AddPayButton from './Button';
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
 
 import {
     Grid,
     Typography,
-    Button,
     withStyles,
     withWidth,
     FormControl,
@@ -14,6 +15,10 @@ import {
     Radio,
     Checkbox,
 } from '@material-ui/core';
+
+const stripePromise = loadStripe(
+    'pk_test_51FwspPG6np2P9MdlkRpx67fsoPwmTvpDrMOldn8PwnvfqW65hoesQV4FyWcJl5psyFLM8EBe4qZVK0fFArRNau5N001XmfvQ3p',
+);
 
 const styles = (theme: any) => ({
     root: {
@@ -69,32 +74,10 @@ const itemsOnetime: any = [
 
 function DonationHeader(props: any) {
     const [radio, setRadio] = useState('');
-    const [product] = useState({
-        name: 'Monthly',
-        price: 10,
-        productBy: 'DIY',
-    });
+    const [state, setState] = useState('start');
 
-    const makePayment = (token: any) => {
-        const body = {
-            token,
-            product,
-        };
-        const headers = {
-            'Content-Type': 'application/json',
-        };
-
-        return fetch(`http://localhost:8181/payment`, {
-            method: 'POST',
-            headers,
-            body: JSON.stringify(body),
-        })
-            .then((response) => {
-                console.log('RESPONSE', response);
-                const { status } = response;
-                console.log('STATUS', status);
-            })
-            .catch((error) => console.log(error));
+    const triggerAddState = () => {
+        setState('add-card');
     };
 
     const { classes } = props;
@@ -179,16 +162,11 @@ function DonationHeader(props: any) {
                             />
                         </div>
                         <div className={classes.buttonStyle}>
-                            <StripeCheckout
-                                stripeKey="pk_test_51FwspPG6np2P9MdlkRpx67fsoPwmTvpDrMOldn8PwnvfqW65hoesQV4FyWcJl5psyFLM8EBe4qZVK0fFArRNau5N001XmfvQ3p"
-                                token={makePayment}
-                                image={logo}
-                                amount={product.price * 100}
-                            >
-                                <Button className={classes.button} disableElevation>
-                                    Give by credit card is just {product.price}
-                                </Button>
-                            </StripeCheckout>
+                            <Elements stripe={stripePromise}>
+                                {state === 'start' && <AddPayButton addTrip={triggerAddState} />}
+
+                                {state === 'add-card' && <HomePage />}
+                            </Elements>
                         </div>
                     </FormControl>
                 </div>
