@@ -1,51 +1,43 @@
 import React from 'react';
 import data from '../../components/dummy_data/data.json';
-import { Grid, makeStyles } from '@material-ui/core';
-import SectionTitle from '../../components/common/SectionTitle';
+import { Box, Container, Grid, Typography } from '@material-ui/core';
+
 import Contributor from './Contributor';
 
 const contributors = data.Contributor;
-const useStyles = makeStyles((theme) => ({
-    container: {
-        alignItems: 'stretch',
-        justifyItems: 'center',
-        [theme.breakpoints.down('md')]: {
-            alignItems: 'stretch',
-            justifyItems: 'space-evenly',
-        },
-        marginRight: 20,
-    },
-    root: {
-        maxWidth: 345,
-    },
-    media: {
-        height: 240,
-    },
-    containerGrid: {
-        paddingLeft: '4%',
-        marginBottom: 20,
-    },
-    itemImage: {
-        transition: 'opacity 1s, transform 1s',
-
-        '&:hover': {
-            boxShadow: '0 10px 30px rgba(0, 0, 0, 0.19), 0 6px 10px rgba(0, 0, 0, 0.23)',
-        },
-    },
-}));
 
 export default function Contributors() {
-    const classes = useStyles();
     return (
-        <Grid container item xs={12} spacing={0} className={classes.container} direction="column" justify="center">
-            <SectionTitle title="Contributors" />
-            <Grid container className={classes.containerGrid}>
-                {contributors.map((contributor) => (
-                    <Grid item xs={6} md={4} key={contributor.id}>
-                        <Contributor contributor={contributor} />
+        <section>
+            <Container maxWidth="lg">
+                <Box py={8}>
+                    <Box mb={9} textAlign="center">
+                        <Container maxWidth="sm">
+                            <Typography variant="overline" color="textSecondary" paragraph={true}>
+                                LOREM IPSUM
+                            </Typography>
+                            <Typography variant="h3" component="h2" gutterBottom={true}>
+                                <Typography variant="h3" component="span" color="primary">
+                                    Donec lacinia{' '}
+                                </Typography>
+                                <Typography variant="h3" component="span">
+                                    turpis non sapien lobortis pretium
+                                </Typography>
+                            </Typography>
+                            <Typography variant="subtitle1" color="textSecondary" paragraph={true}>
+                                Integer feugiat massa sapien, vitae tristique metus suscipit nec.
+                            </Typography>
+                        </Container>
+                    </Box>
+                    <Grid container spacing={6}>
+                        {contributors.map((contributor) => (
+                            <Grid item xs={6} sm={6} md={4} key={contributor.id}>
+                                <Contributor contributor={contributor} />
+                            </Grid>
+                        ))}
                     </Grid>
-                ))}
-            </Grid>
-        </Grid>
+                </Box>
+            </Container>
+        </section>
     );
 }

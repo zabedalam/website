@@ -1,17 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Card, CardActionArea, CardActions, CardContent, CardMedia, Typography, makeStyles } from '@material-ui/core';
+import { Typography, makeStyles, Avatar, Box } from '@material-ui/core';
+import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
 
 const useStyles = makeStyles((theme) => ({
-    root: {
-        maxWidth: 300,
-        boxShadow: theme.shadows[5],
-        marginTop: theme.spacing(3),
-        padding: 20,
-    },
-    media: {
-        height: 300,
+    avatar: {
         width: '100%',
+        height: '256px',
+        marginBottom: theme.spacing(2),
     },
 }));
 
@@ -21,22 +17,18 @@ export default function Contributor(props: any) {
     const classes = useStyles();
     return (
         <div>
-            <Card className={classes.root}>
-                <CardActionArea>
-                    <CardMedia className={classes.media} image={img} title={name} />
-                    <CardContent>
-                        <Typography gutterBottom variant="h5" component="h2">
-                            {name}
-                        </Typography>
-                        <Typography variant="body2" color="textSecondary" component="p">
-                            {desc}
-                        </Typography>
-                    </CardContent>
-                </CardActionArea>
-                <CardActions>
-                    <Link to={`/profile/${id}`}>Profile</Link>
-                </CardActions>
-            </Card>
+            <Avatar alt="" variant="rounded" src={img} className={classes.avatar} />
+            <Box display="flex" justifyContent="space-between">
+                <Typography variant="h6" component="h6" gutterBottom={true}>
+                    {name}
+                </Typography>
+                <Link to={`/profile/${id}`}>
+                    <ArrowRightAltIcon />
+                </Link>
+            </Box>
+            <Typography variant="body1" color="textSecondary" component="span">
+                {desc}
+            </Typography>
         </div>
     );
 }
