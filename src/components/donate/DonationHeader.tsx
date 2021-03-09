@@ -163,7 +163,7 @@ function DonationHeader(props: any) {
                         </div>
                         <div className={classes.buttonStyle}>
                             <Elements stripe={stripePromise}>
-                                {state === 'start' && <AddPayButton addTrip={triggerAddState} />}
+                                {state === 'start' && <AddPayButton addPay={triggerAddState} />}
 
                                 {state === 'add-card' && <HomePage />}
                             </Elements>

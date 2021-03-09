@@ -10,7 +10,7 @@ const styles = (theme: any) => ({
 const AddPayButton = (props: any) => {
     const { classes } = props;
     return (
-        <Button className={classes.button} onClick={props.addTrip} disableElevation>
+        <Button className={classes.button} onClick={props.addPay} disableElevation>
             Give by credit card is just
         </Button>
     );
