@@ -37,11 +37,10 @@ function Accordions() {
             id: 'q1',
             heading: 'Can I send Check?',
             details: `Yes, please send checks to the following address:
-      Khan Academy
-      P.O. Box 1630
-      Mountain View CA 94042
+      DIY,Copenhagen,Denmark
       
-      Checks should be made payable to Khan Academy,
+      
+      Checks should be made payable to DIY,
        and you should enclose a letter with your name, address, 
        phone number, email address, and donation amount—we want 
        to know who you are so we can show our gratitude for your support!`,
@@ -50,28 +49,28 @@ function Accordions() {
             id: 'q2',
             heading: 'Can I donate stock or make donation by wire transfer?',
             details: `Yes, we accept donations of stock and donations by domestic 
-      and international wire transfer. Please email donate@khanacademy.org for
+      and international wire transfer. Please email donate@diy.org for
        our wire and stock transfer information.`,
         },
         {
             id: 'q3',
             heading: 'Can I donate stock or make donation by wire transfer?',
             details: `Yes, we accept donations of stock and donations by domestic 
-        and international wire transfer. Please email donate@khanacademy.org for
+        and international wire transfer. Please email donate@diy.org for
          our wire and stock transfer information.`,
         },
         {
             id: 'q4',
             heading: 'Can I donate stock or make donation by wire transfer?',
             details: `Yes, we accept donations of stock and donations by domestic 
-        and international wire transfer. Please email donate@khanacademy.org for
+        and international wire transfer. Please email donate@diy.org for
          our wire and stock transfer information.`,
         },
         {
             id: 'q5',
             heading: 'Can I donate stock or make donation by wire transfer?',
             details: `Yes, we accept donations of stock and donations by domestic 
-        and international wire transfer. Please email donate@khanacademy.org for
+        and international wire transfer. Please email donate@diy.org for
          our wire and stock transfer information.`,
         },
     ];

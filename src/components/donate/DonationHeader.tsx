@@ -157,7 +157,7 @@ function DonationHeader(props: any) {
                         <div>
                             <FormControlLabel
                                 control={<Checkbox value="remember" className={classes.checkedIcon} />}
-                                label="Yes, I'll generously add the transaction fees so Khan Academy can
+                                label="Yes, I'll generously add the transaction fees so DIY can
               keep 100% of my donation."
                             />
                         </div>
