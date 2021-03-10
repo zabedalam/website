@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
-import HomePage from './StripeMain';
-import AddPayButton from './Button';
-import { loadStripe } from '@stripe/stripe-js';
-import { Elements } from '@stripe/react-stripe-js';
+import { Link } from 'react-router-dom';
 
 import {
     Grid,
@@ -15,10 +12,6 @@ import {
     Radio,
     Checkbox,
 } from '@material-ui/core';
-
-const stripePromise = loadStripe(
-    'pk_test_51FwspPG6np2P9MdlkRpx67fsoPwmTvpDrMOldn8PwnvfqW65hoesQV4FyWcJl5psyFLM8EBe4qZVK0fFArRNau5N001XmfvQ3p',
-);
 
 const styles = (theme: any) => ({
     root: {
@@ -74,11 +67,6 @@ const itemsOnetime: any = [
 
 function DonationHeader(props: any) {
     const [radio, setRadio] = useState('');
-    const [state, setState] = useState('start');
-
-    const triggerAddState = () => {
-        setState('add-card');
-    };
 
     const { classes } = props;
 
@@ -162,11 +150,7 @@ function DonationHeader(props: any) {
                             />
                         </div>
                         <div className={classes.buttonStyle}>
-                            <Elements stripe={stripePromise}>
-                                {state === 'start' && <AddPayButton addPay={triggerAddState} />}
-
-                                {state === 'add-card' && <HomePage />}
-                            </Elements>
+                            <Link to={`/payment`}>Pay with card</Link>
                         </div>
                     </FormControl>
                 </div>

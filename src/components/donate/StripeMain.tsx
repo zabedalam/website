@@ -108,6 +108,7 @@ function StripeMain() {
     };
 
     return (
+        // <Elements stripe={stripePromise}>
         <Card className={classes.root}>
             <CardContent className={classes.content}>
                 <TextField

@@ -6,6 +6,7 @@ import Signup from '../pages/signup/Signup';
 import Login from '../pages/login/Login';
 import Nav from '../components/nav';
 import Profile from '../pages/contributor/Profile';
+import Payment from '../components/donate/StripeParent';
 
 function AppRouter() {
     return (
@@ -18,6 +19,7 @@ function AppRouter() {
                 <Route exact path="/profile/:id" component={Profile} />
                 <Route exact path="/signup" component={Signup} />
                 <Route exact path="/login" component={Login} />
+                <Route exact path="/payment" component={Payment} />
             </Switch>
         </BrowserRouter>
     );
