@@ -27,9 +27,12 @@ const styles = (theme: any) => ({
         padding: '20px' as const,
         fontSize: '25px' as const,
     },
-    button: {
+    linkStyle: {
         background: '#1865f2' as const,
         color: theme.palette.common.white,
+        textDecoration: 'none',
+        padding: '10px' as const,
+        borderRadius: '10px' as const,
     },
     buttonStyle: {
         justifyContent: 'space-between' as const,
@@ -150,7 +153,9 @@ function DonationHeader(props: any) {
                             />
                         </div>
                         <div className={classes.buttonStyle}>
-                            <Link to={`/payment`}>Pay with card</Link>
+                            <Link to={`/payment`} className={classes.linkStyle}>
+                                Pay with card
+                            </Link>
                         </div>
                     </FormControl>
                 </div>
