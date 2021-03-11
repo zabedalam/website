@@ -36,7 +36,7 @@ const styles = (theme: any) => ({
     },
     buttonStyle: {
         justifyContent: 'space-between' as const,
-        padding: '5px' as const,
+        paddingTop: '15px' as const,
     },
     paper: {
         marginTop: theme.spacing(3),
