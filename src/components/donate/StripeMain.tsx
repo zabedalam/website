@@ -32,6 +32,8 @@ const useStyles = makeStyles({
 function StripeMain() {
     const classes = useStyles();
     const [email, setEmail] = useState('');
+    const [name, setName] = useState('');
+
     const stripe = useStripe();
     const elements = useElements();
 
@@ -40,7 +42,7 @@ function StripeMain() {
             return;
         }
 
-        const res = await axios.post('http://localhost:8181/stripePayment', { email: email });
+        const res = await axios.post('http://localhost:8181/stripePayment', { email: email, name: name });
 
         const clientSecret = res.data.client_secret;
 
@@ -49,6 +51,7 @@ function StripeMain() {
                 card: elements.getElement(CardElement)!,
                 billing_details: {
                     email: email,
+                    name: name,
                 },
             },
         });
@@ -75,6 +78,7 @@ function StripeMain() {
             card: elements.getElement(CardElement)!,
             billing_details: {
                 email: email,
+                name: name,
             },
         });
 
@@ -114,13 +118,23 @@ function StripeMain() {
                 <TextField
                     label="Email"
                     id="outlined-email-input"
-                    helperText={`Email you'll recive updates and receipts on`}
                     margin="normal"
                     variant="outlined"
                     type="email"
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
+                    fullWidth
+                />
+                <TextField
+                    label="Name"
+                    id="outlined-name-input"
+                    margin="normal"
+                    variant="outlined"
+                    type="name"
+                    required
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
                     fullWidth
                 />
                 <CardInput />
