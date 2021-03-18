@@ -29,7 +29,7 @@ const useStyles = makeStyles({
     },
 });
 
-function StripeMain() {
+function StripeMain({ handleDonation }: any) {
     const classes = useStyles();
     const [email, setEmail] = useState('');
     const [name, setName] = useState('');
@@ -112,7 +112,6 @@ function StripeMain() {
     };
 
     return (
-        // <Elements stripe={stripePromise}>
         <Card className={classes.root}>
             <CardContent className={classes.content}>
                 <TextField
@@ -140,7 +139,7 @@ function StripeMain() {
                 <CardInput />
                 <div className={classes.div}>
                     <Button variant="contained" color="primary" className={classes.button} onClick={handleSubmitPay}>
-                        Pay
+                        Pay {handleDonation}
                     </Button>
                     <Button variant="contained" color="primary" className={classes.button} onClick={handleSubmitSub}>
                         Subscription
