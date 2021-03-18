@@ -1,4 +1,4 @@
-import HeadImage from '../../assets/images/headImage.jpg';
+import HeadImage from '../../assets/images/bannerImage.jpg';
 import classNames from 'classnames';
 import { Grid, Typography, Card, Button, Hidden, Box, isWidthUp, Theme, useTheme } from '@material-ui/core';
 import WaveBorder from '../../shared/components/WaveBorder';
