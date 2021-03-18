@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
-import HomePage from './StripeMain';
-import AddPayButton from './Button';
-import { loadStripe } from '@stripe/stripe-js';
-import { Elements } from '@stripe/react-stripe-js';
+import { Link } from 'react-router-dom';
 
 import {
     Grid,
@@ -15,10 +12,6 @@ import {
     Radio,
     Checkbox,
 } from '@material-ui/core';
-
-const stripePromise = loadStripe(
-    'pk_test_51FwspPG6np2P9MdlkRpx67fsoPwmTvpDrMOldn8PwnvfqW65hoesQV4FyWcJl5psyFLM8EBe4qZVK0fFArRNau5N001XmfvQ3p',
-);
 
 const styles = (theme: any) => ({
     root: {
@@ -34,13 +27,16 @@ const styles = (theme: any) => ({
         padding: '20px' as const,
         fontSize: '25px' as const,
     },
-    button: {
+    linkStyle: {
         background: '#1865f2' as const,
         color: theme.palette.common.white,
+        textDecoration: 'none',
+        padding: '10px' as const,
+        borderRadius: '10px' as const,
     },
     buttonStyle: {
         justifyContent: 'space-between' as const,
-        padding: '5px' as const,
+        paddingTop: '15px' as const,
     },
     paper: {
         marginTop: theme.spacing(3),
@@ -55,30 +51,27 @@ const styles = (theme: any) => ({
 });
 
 const itemsMonthly: any = [
-    { id: 'ten', title: '$10' },
-    { id: 'twenty', title: '$20' },
-    { id: 'thirty', title: '$30' },
-    { id: 'fourty', title: '$40' },
-    { id: 'fifty', title: '$50' },
+    { id: '$10', title: '$10' },
+    { id: '$20', title: '$20' },
+    { id: '$30', title: '$30' },
+    { id: '$40', title: '$40' },
+    { id: '$50', title: '$50' },
     { id: 'other', title: 'Other' },
 ];
 
 const itemsOnetime: any = [
-    { id: 'twentyfive', title: '$25' },
-    { id: 'thirty', title: '$30' },
-    { id: 'fourty', title: '$40' },
-    { id: 'fifty', title: '$50' },
-    { id: 'onethudred', title: '$100' },
+    { id: '$25', title: '$25' },
+    { id: '$30', title: '$30' },
+    { id: '$40', title: '$40' },
+    { id: '$50', title: '$50' },
+    { id: '$100', title: '$100' },
     { id: 'other', title: 'Other' },
 ];
 
 function DonationHeader(props: any) {
     const [radio, setRadio] = useState('');
-    const [state, setState] = useState('start');
-
-    const triggerAddState = () => {
-        setState('add-card');
-    };
+    const [radio1, setRadio1] = useState('');
+    const [radio2, setRadio2] = useState('');
 
     const { classes } = props;
 
@@ -136,7 +129,15 @@ function DonationHeader(props: any) {
                                     <FormControlLabel
                                         key={item.id}
                                         value={item.id}
-                                        control={<Radio className={classes.checkedIcon} />}
+                                        control={
+                                            <Radio
+                                                value={item.title}
+                                                name="radioValues"
+                                                checked={radio1 === item}
+                                                onChange={(e) => setRadio1(e.target.value)}
+                                                className={classes.checkedIcon}
+                                            />
+                                        }
                                         label={item.title}
                                     />
                                 ))}
@@ -148,7 +149,15 @@ function DonationHeader(props: any) {
                                     <FormControlLabel
                                         key={item.id}
                                         value={item.id}
-                                        control={<Radio className={classes.checkedIcon} />}
+                                        control={
+                                            <Radio
+                                                value={item.title}
+                                                name="radioValues"
+                                                checked={radio2 === item}
+                                                onChange={(e) => setRadio2(e.target.value)}
+                                                className={classes.checkedIcon}
+                                            />
+                                        }
                                         label={item.title}
                                     />
                                 ))}
@@ -162,11 +171,9 @@ function DonationHeader(props: any) {
                             />
                         </div>
                         <div className={classes.buttonStyle}>
-                            <Elements stripe={stripePromise}>
-                                {state === 'start' && <AddPayButton addPay={triggerAddState} />}
-
-                                {state === 'add-card' && <HomePage />}
-                            </Elements>
+                            <Link to={`/payment`} className={classes.linkStyle}>
+                                Pay with card {(radio === 'monthly' && radio1) || (radio === 'onetime' && radio2)}
+                            </Link>
                         </div>
                     </FormControl>
                 </div>
