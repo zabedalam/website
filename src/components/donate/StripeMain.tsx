@@ -29,7 +29,7 @@ const useStyles = makeStyles({
     },
 });
 
-function StripeMain() {
+function StripeMain(props: any) {
     const classes = useStyles();
     const [email, setEmail] = useState('');
     const [name, setName] = useState('');
@@ -112,7 +112,6 @@ function StripeMain() {
     };
 
     return (
-        // <Elements stripe={stripePromise}>
         <Card className={classes.root}>
             <CardContent className={classes.content}>
                 <TextField

@@ -11,6 +11,7 @@ import {
     FormControlLabel,
     Radio,
     Checkbox,
+    Button,
 } from '@material-ui/core';
 
 const styles = (theme: any) => ({
@@ -25,6 +26,10 @@ const styles = (theme: any) => ({
     info: {
         marginLeft: '7px' as const,
         padding: '20px' as const,
+        fontSize: '25px' as const,
+    },
+    infoGift: {
+        padding: '20px 0' as const,
         fontSize: '25px' as const,
     },
     linkStyle: {
@@ -47,31 +52,60 @@ const styles = (theme: any) => ({
     },
     checkedIcon: {
         color: theme.palette.common.white,
+        padding: '30px 0' as const,
+    },
+    radioStyle: {
+        visibility: 'hidden' as const,
+    },
+    labelStyle: {
+        border: '2px solid gray' as const,
+        borderRadius: '5px' as const,
+        padding: '1px' as const,
+        display: 'block' as const,
+        cursor: 'pointer' as const,
+        backgroundColor: theme.palette.primary.main,
+        textAlign: 'center' as const,
+        paddingRight: '30px' as const,
+        '&:hover': {
+            backgroundColor: theme.palette.common.white,
+            color: 'black' as const,
+        },
     },
 });
 
 const itemsMonthly: any = [
-    { id: '$10', title: '$10' },
-    { id: '$20', title: '$20' },
-    { id: '$30', title: '$30' },
-    { id: '$40', title: '$40' },
-    { id: '$50', title: '$50' },
+    { id: '$10', title: '10' },
+    { id: '$20', title: '20' },
+    { id: '$30', title: '30' },
+    { id: '$40', title: '40' },
+    { id: '$50', title: '50' },
     { id: 'other', title: 'Other' },
 ];
 
 const itemsOnetime: any = [
-    { id: '$25', title: '$25' },
-    { id: '$30', title: '$30' },
-    { id: '$40', title: '$40' },
-    { id: '$50', title: '$50' },
-    { id: '$100', title: '$100' },
+    { id: '$25', title: '25' },
+    { id: '$30', title: '30' },
+    { id: '$40', title: '40' },
+    { id: '$50', title: '50' },
+    { id: '$100', title: '100' },
     { id: 'other', title: 'Other' },
 ];
 
 function DonationHeader(props: any) {
-    const [radio, setRadio] = useState('');
+    const [radio, setRadio] = useState('monthly');
     const [radio1, setRadio1] = useState('');
     const [radio2, setRadio2] = useState('');
+    const [isChecked, setIsChecked] = useState(false);
+
+    const totalDonation = () => {
+        if (radio === 'monthly' && radio1 && isChecked === true) {
+            return parseInt(radio1) + parseInt(radio1) * 0.04;
+        } else if (radio === 'onetime' && radio2 && isChecked === true) {
+            return parseInt(radio2) + parseInt(radio2) * 0.04;
+        } else {
+            return (radio === 'monthly' && radio1) || (radio === 'onetime' && radio2);
+        }
+    };
 
     const { classes } = props;
 
@@ -85,18 +119,20 @@ function DonationHeader(props: any) {
                     big difference. We’re a nonprofit that relies on support from people like you. Thank you!
                 </p>
             </Grid>
+
             <Grid item xs={12} sm={12} md={6} className={classes.paper}>
                 <div>
-                    <Typography component="h1" variant="h5">
+                    <Typography component="h1" variant="h5" className={classes.infoGift}>
                         Select gift frequency
                     </Typography>
                     <FormControl>
                         <RadioGroup row>
                             <FormControlLabel
                                 defaultValue="monthly"
+                                className={classes.labelStyle}
                                 control={
                                     <Radio
-                                        className={classes.checkedIcon}
+                                        className={classes.radioStyle}
                                         name="radio"
                                         value="monthly"
                                         checked={radio === 'monthly'}
@@ -108,9 +144,10 @@ function DonationHeader(props: any) {
 
                             <FormControlLabel
                                 value="onetime"
+                                className={classes.labelStyle}
                                 control={
                                     <Radio
-                                        className={classes.checkedIcon}
+                                        className={classes.radioStyle}
                                         name="radio"
                                         value="onetime"
                                         checked={radio === 'onetime'}
@@ -120,7 +157,7 @@ function DonationHeader(props: any) {
                                 label="One time"
                             />
                         </RadioGroup>
-                        <Typography component="h1" variant="h5">
+                        <Typography component="h1" variant="h5" className={classes.infoGift}>
                             Select amount (in US dollars)
                         </Typography>
                         {radio === 'monthly' && (
@@ -129,16 +166,17 @@ function DonationHeader(props: any) {
                                     <FormControlLabel
                                         key={item.id}
                                         value={item.id}
+                                        className={classes.labelStyle}
                                         control={
                                             <Radio
                                                 value={item.title}
-                                                name="radioValues"
+                                                name="radio"
                                                 checked={radio1 === item}
                                                 onChange={(e) => setRadio1(e.target.value)}
-                                                className={classes.checkedIcon}
+                                                className={classes.radioStyle}
                                             />
                                         }
-                                        label={item.title}
+                                        label={item.id}
                                     />
                                 ))}
                             </RadioGroup>
@@ -149,30 +187,40 @@ function DonationHeader(props: any) {
                                     <FormControlLabel
                                         key={item.id}
                                         value={item.id}
+                                        className={classes.labelStyle}
                                         control={
                                             <Radio
                                                 value={item.title}
-                                                name="radioValues"
+                                                name="radio"
                                                 checked={radio2 === item}
                                                 onChange={(e) => setRadio2(e.target.value)}
-                                                className={classes.checkedIcon}
+                                                className={classes.radioStyle}
                                             />
                                         }
-                                        label={item.title}
+                                        label={item.id}
                                     />
                                 ))}
                             </RadioGroup>
                         )}
                         <div>
                             <FormControlLabel
-                                control={<Checkbox value="remember" className={classes.checkedIcon} />}
-                                label="Yes, I'll generously add the transaction fees so DIY can
+                                control={
+                                    <Checkbox
+                                        value="remember"
+                                        checked={isChecked}
+                                        onChange={(e) => {
+                                            setIsChecked(e.target.checked);
+                                        }}
+                                        className={classes.checkedIcon}
+                                    />
+                                }
+                                label="Yes, I'll generously add the 0.04% transaction fees so DIY can
               keep 100% of my donation."
                             />
                         </div>
                         <div className={classes.buttonStyle}>
                             <Link to={`/payment`} className={classes.linkStyle}>
-                                Pay with card {(radio === 'monthly' && radio1) || (radio === 'onetime' && radio2)}
+                                Pay with card {totalDonation()}
                             </Link>
                         </div>
                     </FormControl>
