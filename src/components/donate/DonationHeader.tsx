@@ -28,6 +28,10 @@ const styles = (theme: any) => ({
         padding: '20px' as const,
         fontSize: '25px' as const,
     },
+    infoGift: {
+        padding: '20px 0' as const,
+        fontSize: '25px' as const,
+    },
     linkStyle: {
         background: '#1865f2' as const,
         color: theme.palette.common.white,
@@ -48,6 +52,7 @@ const styles = (theme: any) => ({
     },
     checkedIcon: {
         color: theme.palette.common.white,
+        padding: '30px 0' as const,
     },
     radioStyle: {
         visibility: 'hidden' as const,
@@ -87,7 +92,7 @@ const itemsOnetime: any = [
 ];
 
 function DonationHeader(props: any) {
-    const [radio, setRadio] = useState('');
+    const [radio, setRadio] = useState('monthly');
     const [radio1, setRadio1] = useState('');
     const [radio2, setRadio2] = useState('');
     const [isChecked, setIsChecked] = useState(false);
@@ -117,7 +122,7 @@ function DonationHeader(props: any) {
 
             <Grid item xs={12} sm={12} md={6} className={classes.paper}>
                 <div>
-                    <Typography component="h1" variant="h5">
+                    <Typography component="h1" variant="h5" className={classes.infoGift}>
                         Select gift frequency
                     </Typography>
                     <FormControl>
@@ -152,7 +157,7 @@ function DonationHeader(props: any) {
                                 label="One time"
                             />
                         </RadioGroup>
-                        <Typography component="h1" variant="h5">
+                        <Typography component="h1" variant="h5" className={classes.infoGift}>
                             Select amount (in US dollars)
                         </Typography>
                         {radio === 'monthly' && (
