@@ -2,30 +2,34 @@
   "Contributor":[
     {  "id":1,
        "name":"John Doe",
-       "img":"contibutor1.png",
+       "img":"https://images.unsplash.com/photo-1557862921-37829c790f19?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd91&w=500&ah=500&q=80",
        "desc":"FullStack WebDeveloper",
        "isActive":true,
        "Address":"New York, USA",
-       "tel":"+123456789",
-       "skills":"Java, C#, ReactJs, Javascript"
+       "tel":"(0045)123456789",
+       "skills":"Java, C#, ReactJs, Javascript",
+       "email":"hello@abc.com"
       },
     {  "id":2,
        "name":"Kim Larsen",
-       "img":"contibutor2.png",
+       "img":"https://images.unsplash.com/photo-1560298803-1d998f6b5249?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd91&w=500&ah=500&q=80",
+       
        "desc":"WebDeveloper",
        "isActive":false,
        "Address":"New York, USA",
-       "tel":"+123456789",
-       "skills":"Java, C#, ReactJs, Javascript"
+       "tel":"(0045)123456789",
+       "skills":"Java, C#, ReactJs, Javascript",
+       "email":"hello@abc.com"
       },
     {  "id":3,
        "name":"Jenny Doe",
-       "img":"contibutor3.png",
+       "img":"https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&w=500&ah=500&q=80",
        "desc":"Designer",
        "isActive":true,
        "Address":"New York, USA",
-       "tel":"+123456789",
-       "skills":"Java, C#, ReactJs, Javascript"
+       "tel":"(0045)123456789",
+       "skills":"Java, C#, ReactJs, Javascript",
+       "email":"hello@abc.com"
       }
 ]   
     }
