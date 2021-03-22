@@ -1,4 +1,5 @@
 import React from 'react';
+
 import data from '../../components/dummy_data/data.json';
 import { Box, Container, Grid, Typography } from '@material-ui/core';
 
