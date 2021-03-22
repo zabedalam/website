@@ -99,12 +99,13 @@ function DonationHeader(props: any) {
 
     const totalDonation = () => {
         if (radio === 'monthly' && radio1 && isChecked === true) {
-            return parseInt(radio1) + parseInt(radio1) * 0.04;
+            return `$${parseFloat(radio1) + parseFloat(radio1) * 0.04}`;
         } else if (radio === 'onetime' && radio2 && isChecked === true) {
-            return parseInt(radio2) + parseInt(radio2) * 0.04;
-        } else {
-            return (radio === 'monthly' && radio1) || (radio === 'onetime' && radio2);
+            return `$${parseFloat(radio2) + parseFloat(radio2) * 0.04}`;
+        } else if ((radio === 'monthly' && radio1) || (radio === 'onetime' && radio2)) {
+            return `$${(radio === 'monthly' && radio1) || (radio === 'onetime' && radio2)}`;
         }
+        return '';
     };
 
     const { classes } = props;
