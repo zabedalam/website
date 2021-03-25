@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useState, useEffect, useRef, useContext } from 'react';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -10,7 +10,8 @@ import Button from '@material-ui/core/Button';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import logo from '../../assets/images/logo.png';
 import { withRouter } from 'react-router-dom';
-
+import { LanguageContext } from '../../context/languageContext';
+//import './index.css';
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
@@ -54,6 +55,14 @@ const Nav = (props: any) => {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('xs'));
 
+    //For Language
+    const {
+        state: { language },
+        dispatch: { setLanguage, translate },
+    } = useContext(LanguageContext);
+    const [showDropdown, setShowDropdown] = useState(false);
+    const dropdownEl = useRef<HTMLUListElement>(null);
+
     const handleMenu = (event: any) => {
         setAnchorEl(event.currentTarget);
     };
@@ -89,6 +98,28 @@ const Nav = (props: any) => {
             pageURL: '/contributor',
         },
     ];
+    const handleClickOutside = useCallback(
+        (e) => {
+            if (showDropdown && e.target.closest('.dropdown') !== dropdownEl.current) {
+                setShowDropdown(false);
+            }
+        },
+        [showDropdown, setShowDropdown, dropdownEl],
+    );
+
+    useEffect(() => {
+        document.addEventListener('click', handleClickOutside);
+
+        return () => {
+            document.removeEventListener('click', handleClickOutside);
+        };
+    }, [handleClickOutside]);
+
+    const chooseLanguageHandler = (value: string) => {
+        console.log(value);
+        setShowDropdown(false);
+        setLanguage(value);
+    };
 
     return (
         <div className={classes.root}>
@@ -97,6 +128,7 @@ const Nav = (props: any) => {
                     <div>
                         <img src={logo} className={classes.logo} alt="logo" />
                     </div>
+
                     {isMobile ? (
                         <>
                             <IconButton
@@ -140,35 +172,62 @@ const Nav = (props: any) => {
                                 className={classes.menuButtonText}
                                 onClick={() => handleButtonClick('/')}
                             >
-                                HOME
+                                {translate('HOME')}
                             </Button>
                             <Button
                                 className={classes.menuButtonText}
                                 color="primary"
                                 onClick={() => handleButtonClick('/donate')}
                             >
-                                DONATE
+                                {translate('DONATE')}
                             </Button>
                             <Button
                                 color="primary"
                                 className={classes.menuButtonText}
                                 onClick={() => handleButtonClick('/contributor')}
                             >
-                                Contributor
+                                {translate('Contributor')}
                             </Button>
                             <Button
                                 className={classes.menuButtonText}
                                 color="primary"
                                 onClick={() => handleButtonClick('/signup')}
                             >
-                                SIGNUP
+                                {' '}
+                                {translate('SIGNUP')}
                             </Button>
                             <Button
                                 color="primary"
                                 className={classes.menuButtonText}
                                 onClick={() => handleButtonClick('/login')}
                             >
-                                LOGIN
+                                {' '}
+                                {translate('LOGIN')}
+                            </Button>
+                            {/* <div className="header_nav_lang">
+                                <p className="selected" onClick={() => setShowDropdown(!showDropdown)}>
+                                    {language}
+                                </p>
+                                {showDropdown && (
+                                    <ul className="dropdown" ref={dropdownEl}>
+                                        <li onClick={() => chooseLanguageHandler('EN')}>EN</li>
+                                        <li onClick={() => chooseLanguageHandler('DA')}>DE</li>
+                                    </ul>
+                                )}
+                            </div> */}
+                            <Button
+                                color="primary"
+                                className={classes.menuButtonText}
+                                onClick={() => chooseLanguageHandler('EN')}
+                            >
+                                EN
+                            </Button>
+                            <Button
+                                color="secondary"
+                                className={classes.menuButtonText}
+                                onClick={() => chooseLanguageHandler('DA')}
+                            >
+                                DA
                             </Button>
                         </div>
                     )}
