@@ -1,14 +1,12 @@
-import { Grid, Typography, isWidthUp, withWidth, withStyles } from '@material-ui/core';
+import { Grid, Typography, isWidthUp, withWidth, withStyles, Box } from '@material-ui/core';
 import classNames from 'classnames';
-import CodeIcon from '@material-ui/icons/Code';
-import BuildIcon from '@material-ui/icons/Build';
-import ComputerIcon from '@material-ui/icons/Computer';
-import BarChartIcon from '@material-ui/icons/BarChart';
-import HeadsetMicIcon from '@material-ui/icons/HeadsetMic';
-import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
+import BeenhereIcon from '@material-ui/icons/Beenhere';
+import SecurityIcon from '@material-ui/icons/Security';
+import SettingsIcon from '@material-ui/icons/Settings';
+import AssessmentIcon from '@material-ui/icons/Assessment';
+import ContactPhoneIcon from '@material-ui/icons/ContactPhone';
 import CloudIcon from '@material-ui/icons/Cloud';
-import MeassageIcon from '@material-ui/icons/Message';
-import CancelIcon from '@material-ui/icons/Cancel';
+
 import CalculateSpacing from './CalculateSpacing';
 import FeatureCard from './FeatureCard';
 
@@ -22,88 +20,56 @@ const styles = (theme: any) => ({
     },
 });
 
-const iconSize = 30;
+const iconSize = 70;
 
 const features = [
     {
-        color: '#00C853',
-        headline: 'Feature 1',
-        text:
-            'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et.',
-        icon: <BuildIcon style={{ fontSize: iconSize }} />,
+        color: '#3f51b5',
+        headline: '24/7 IT Support',
+        text: 'World class Service Desk with 85% of tickets solved on first response.',
+        icon: <ContactPhoneIcon style={{ fontSize: iconSize }} />,
         mdDelay: '0',
         smDelay: '0',
     },
     {
-        color: '#6200EA',
-        headline: 'Feature 2',
-        text:
-            'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et.',
-        icon: <CalendarTodayIcon style={{ fontSize: iconSize }} />,
+        color: '#3f51b5',
+        headline: 'Strategic IT Partner',
+        text: 'IT strategy and roadmap development using industry leading consultancy processes.',
+        icon: <AssessmentIcon style={{ fontSize: iconSize }} />,
         mdDelay: '200',
         smDelay: '200',
     },
     {
-        color: '#0091EA',
-        headline: 'Feature 3',
-        text:
-            'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et.',
-        icon: <MeassageIcon style={{ fontSize: iconSize }} />,
+        color: '#3f51b5',
+        headline: 'Highly accredited',
+        text: 'ISO 27001 and Cyber Essentials plus certified.',
+        icon: <SettingsIcon style={{ fontSize: iconSize }} />,
         mdDelay: '400',
         smDelay: '0',
     },
     {
-        color: '#d50000',
-        headline: 'Feature 4',
-        text:
-            'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et.',
-        icon: <ComputerIcon style={{ fontSize: iconSize }} />,
+        color: '#3f51b5',
+        headline: 'Cyber Security',
+        text: 'Next generation Cyber Security managed services delivered by our 24/7 Security Operations Centre.',
+        icon: <SecurityIcon style={{ fontSize: iconSize }} />,
         mdDelay: '0',
         smDelay: '200',
     },
     {
-        color: '#DD2C00',
-        headline: 'Feature 5',
-        text:
-            'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et.',
-        icon: <BarChartIcon style={{ fontSize: iconSize }} />,
-        mdDelay: '200',
-        smDelay: '0',
-    },
-    {
-        color: '#64DD17',
-        headline: 'Feature 6',
-        text:
-            'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et.',
-        icon: <HeadsetMicIcon style={{ fontSize: iconSize }} />,
-        mdDelay: '400',
-        smDelay: '200',
-    },
-    {
-        color: '#304FFE',
-        headline: 'Feature 7',
-        text:
-            'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et.',
+        color: '#3f51b5',
+        headline: 'Office 365 and Azure',
+        text: 'Experts in driving businesses to the Modern Workplace.',
         icon: <CloudIcon style={{ fontSize: iconSize }} />,
-        mdDelay: '0',
+        mdDelay: '200',
         smDelay: '0',
     },
+
     {
-        color: '#C51162',
-        headline: 'Feature 8',
-        text:
-            'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et.',
-        icon: <CodeIcon style={{ fontSize: iconSize }} />,
-        mdDelay: '200',
-        smDelay: '200',
-    },
-    {
-        color: '#00B8D4',
-        headline: 'Feature 9',
-        text:
-            'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et.',
-        icon: <CancelIcon style={{ fontSize: iconSize }} />,
-        mdDelay: '400',
+        color: '#3f51b5',
+        headline: 'Digital Transformation',
+        text: 'Delivering competitive advantage through the use of technology.',
+        icon: <BeenhereIcon style={{ fontSize: iconSize }} />,
+        mdDelay: '0',
         smDelay: '0',
     },
 ];
@@ -114,7 +80,9 @@ function FeatureSection(props: any) {
         <div style={{ backgroundColor: '#FFFFFF' }}>
             <div className="container-fluid lg-p-top">
                 <Typography variant="h3" align="center" className={classes.featureStyle}>
-                    Features
+                    <Box color="primary.main" fontStyle="italic">
+                        Why work with us
+                    </Box>
                 </Typography>
                 <div className={classNames('container-fluid', classes.wrapper)}>
                     <Grid container spacing={CalculateSpacing(width)}>

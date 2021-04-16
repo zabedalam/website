@@ -24,32 +24,36 @@ function HeadSection(props: any) {
                                             justifyContent="space-between"
                                             height="100%"
                                         >
-                                            <Box mb={4}>
+                                            <Box mb={2}>
                                                 <Typography variant={isWidthUp('lg', width) ? 'h3' : 'h4'}>
-                                                    Free Template for building an SaaS app using Material-UI
+                                                    <Box color="primary.main" fontStyle="italic">
+                                                        What we do
+                                                    </Box>
                                                 </Typography>
                                             </Box>
-                                            <div>
-                                                <Box mb={2}>
-                                                    <Typography
-                                                        variant={isWidthUp('lg', width) ? 'h6' : 'body1'}
-                                                        color="textSecondary"
-                                                    >
-                                                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                                                        diam nonumy eirmod tempor invidunt
-                                                    </Typography>
-                                                </Box>
-                                                <Button
-                                                    variant="contained"
-                                                    color="primary"
-                                                    fullWidth
-                                                    className={classes.extraLargeButton}
-                                                    classes={{ label: classes.extraLargeButtonLabel }}
-                                                    href="https://github.com/opendiy/website"
+                                            <Box mb={2}>
+                                                <Typography variant={isWidthUp('lg', width) ? 'h3' : 'h4'}>
+                                                    Making digital work for you
+                                                </Typography>
+                                            </Box>
+                                            <Box mb={2}>
+                                                <Typography
+                                                    variant={isWidthUp('lg', width) ? 'h6' : 'body1'}
+                                                    color="textSecondary"
                                                 >
-                                                    Download from GitHub
-                                                </Button>
-                                            </div>
+                                                    We partner with clients around the world, providing digital services
+                                                    and solutions that accelerate the modernization of digital world.
+                                                </Typography>
+                                            </Box>
+                                            <Button
+                                                variant="contained"
+                                                color="primary"
+                                                fullWidth
+                                                className={classes.extraLargeButton}
+                                                classes={{ label: classes.extraLargeButtonLabel }}
+                                            >
+                                                OUR PRODUCTS AND SERVICES
+                                            </Button>
                                         </Box>
                                     </Grid>
                                     <Hidden smDown>
